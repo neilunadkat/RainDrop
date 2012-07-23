@@ -1,0 +1,5 @@
+<Modules>
+  <Module PersistentId="7AF7EBBC-86BD-4E20-AEAF-8F10651C742F" ModuleId="Tavisca.RainDrop_1" />
+  <Module PersistentId="A0097552-6C65-452F-9D6C-0D0DE7B74325" ModuleId="Tavisca.RainDrop.Service" />
+  <Module PersistentId="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63" ModuleId="Tavisca.RainDrop" />
+</Modules>

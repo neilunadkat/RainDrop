@@ -1,0 +1,7 @@
+C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\bin\Debug\Tavisca.RainDrop.dll
+C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\bin\Debug\Tavisca.RainDrop.pdb
+C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\bin\Debug\Tavisca.Gossamer.Interfaces.dll
+C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\bin\Debug\Tavisca.Gossamer.MySql.Driver.dll
+C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\obj\Debug\Tavisca.RainDrop.dll
+C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\obj\Debug\Tavisca.RainDrop.pdb

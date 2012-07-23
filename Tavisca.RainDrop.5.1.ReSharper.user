@@ -1,0 +1,140 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="1220" fromTop="16" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:IRainDrop.cs" caret="432" fromTop="15" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="1316" fromTop="20" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:RainDropService.cs" caret="241" fromTop="11" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="1613" fromTop="7" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:RainDropService.cs" caret="169" fromTop="7" />
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="221" fromTop="7" />
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="798" fromTop="21" />
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="1479" fromTop="27" />
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="1588" fromTop="32" />
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="798" fromTop="12" />
+      <File id="6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63/f:RainDrop.cs" caret="808" fromTop="21" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="1261" fromTop="9" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="1914" fromTop="21" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="1603" fromTop="30" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="1511" fromTop="27" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="1013" fromTop="19" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="711" fromTop="14" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:Web.config" caret="1318" fromTop="27" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:IRainDrop.cs" caret="434" fromTop="15" />
+      <File id="A0097552-6C65-452F-9D6C-0D0DE7B74325/f:RainDropService.cs" caret="333" fromTop="12" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="4" />
+      <Item value="void" priority="0" />
+      <Item value="Console`0" priority="0" />
+      <Item value="macAddr" priority="0" />
+      <Item value="DateTime`0" priority="0" />
+      <Item value="interface" priority="0" />
+      <Item value="IRainDrop`0" priority="0" />
+      <Item value="long" priority="8" />
+      <Item value="OperationContract" priority="0" />
+      <Item value="Method" priority="0" />
+      <Item value="UriTemplate" priority="0" />
+      <Item value="using" priority="4" />
+      <Item value="Tavisca" priority="0" />
+      <Item value="Gossamer.MySql.Driver" priority="0" />
+      <Item value="MySql" priority="2" />
+      <Item value="thr" priority="0" />
+      <Item value="NotImplementedException`0" priority="0" />
+      <Item value="MySqlRelationalDatabase`0" priority="0" />
+      <Item value="new" priority="7" />
+      <Item value="MySqlRelationalDatabase" priority="0" />
+      <Item value="db" priority="1" />
+      <Item value="System" priority="0" />
+      <Item value="Configuration" priority="0" />
+      <Item value="Configuration`0" priority="1" />
+      <Item value="DataCommand" priority="1" />
+      <Item value="Data" priority="0" />
+      <Item value="MySqlClient" priority="0" />
+      <Item value="MySqlCommand`0" priority="1" />
+      <Item value="var" priority="9" />
+      <Item value="MySqlConnection`0" priority="0" />
+      <Item value="connection" priority="3" />
+      <Item value="MySqlConnection" priority="0" />
+      <Item value="connectionString" priority="0" />
+      <Item value="command" priority="4" />
+      <Item value="MySqlCommand" priority="0" />
+      <Item value="MySqlDataAdapter`0" priority="0" />
+      <Item value="adapter" priority="0" />
+      <Item value="reader" priority="1" />
+      <Item value="return" priority="1" />
+      <Item value="id" priority="4" />
+      <Item value="if" priority="2" />
+      <Item value="private" priority="0" />
+      <Item value="GetId`0" priority="1" />
+      <Item value="false" priority="2" />
+      <Item value="while" priority="0" />
+      <Item value="gotId" priority="2" />
+      <Item value="retryCount" priority="2" />
+      <Item value="true" priority="0" />
+      <Item value="RainDrop`0" priority="1" />
+      <Item value="RainDrop" priority="0" />
+      <Item value="dr" priority="0" />
+      <Item value="class" priority="1" />
+      <Item value="DataMember" priority="0" />
+      <Item value="NextId`0" priority="0" />
+      <Item value="NextId" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="MinValue" priority="0" />
+      <Item value="MaxValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="Ticks" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Tavisca.Gossamer.MySql.Driver.MySqlRelationalDatabase">
+      <Item value="ConnectionString" priority="0" />
+      <Item value="ExecuteQuery`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Configuration.ConfigurationManager">
+      <Item value="ConnectionStrings" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Configuration.ConnectionStringSettings">
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MySql.Data.MySqlClient.MySqlConnection">
+      <Item value="Open`0" priority="0" />
+      <Item value="Close`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MySql.Data.MySqlClient.MySqlCommand">
+      <Item value="ExecuteReader`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:MySql.Data.MySqlClient.MySqlDataReader">
+      <Item value="Read`0" priority="0" />
+      <Item value="GetInt64`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Tavisca.RainDrop.RainDrop">
+      <Item value="GetNextId`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

@@ -5,3 +5,8 @@ C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\bin\Debug\Tavisca.Gossamer.MySql.D
 C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\obj\Debug\Tavisca.RainDrop.dll
 C:\Projects\Tavisca.RainDrop\Tavisca.RainDrop\obj\Debug\Tavisca.RainDrop.pdb
+C:\Projects\RainDrop\Tavisca.RainDrop\bin\Debug\Tavisca.RainDrop.dll
+C:\Projects\RainDrop\Tavisca.RainDrop\bin\Debug\Tavisca.RainDrop.pdb
+C:\Projects\RainDrop\Tavisca.RainDrop\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\RainDrop\Tavisca.RainDrop\obj\Debug\Tavisca.RainDrop.dll
+C:\Projects\RainDrop\Tavisca.RainDrop\obj\Debug\Tavisca.RainDrop.pdb

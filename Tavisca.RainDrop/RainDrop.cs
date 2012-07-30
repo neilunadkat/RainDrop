@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Tavisca.Gossamer.Interfaces;
-using Tavisca.Gossamer.MySql.Driver;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 

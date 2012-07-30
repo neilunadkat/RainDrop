@@ -47,12 +47,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tavisca.Gossamer.Interfaces">
-      <HintPath>..\Library\Tavisca.Gossamer.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="Tavisca.Gossamer.MySql.Driver">
-      <HintPath>..\Library\Tavisca.Gossamer.MySql.Driver.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RainDrop.cs" />

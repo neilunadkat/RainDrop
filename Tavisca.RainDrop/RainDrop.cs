@@ -4,54 +4,85 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace Tavisca.RainDrop
 {
     public class RainDrop
     {
-        public long GetNextId(long serverId, long workerId, long dataCenterId)
+        private static readonly object toBeLocked = new object();
+        private static long _lastMilliseconds=long.MaxValue;
+        private static int _sequence;
+        private const long EpochTime = 634793760000000000;
+        private const int ServerIdBits = 10;
+        private const int DataCenterIdBits = 3;
+        private const int SequenceBits = 10;
+
+        private const int ServerIdShift = SequenceBits;
+        private const int DataCenterIdShift = SequenceBits + ServerIdBits;
+        private const int TimeShift = SequenceBits + ServerIdBits + DataCenterIdBits;
+        private const int SequenceMask = -1 ^ (-1 << SequenceBits);
+
+        public long GetNextId(long serverId, long dataCenterId)
         {
-            var gotId = false;
-            var retryCount = 0;
-            long id = 0;
-            while(gotId == false && retryCount < 3 )
+            
+            var milliseconds = GetSystemMilliSeconds();
+
+            lock (toBeLocked)
             {
-                id = GetId();
-                if(id == 0)
+                if (milliseconds < _lastMilliseconds)
                 {
-                    gotId = false;
-                    retryCount ++;
+                    //TODO: Throw error that clock is moving backwords
+                }
+
+                if (_lastMilliseconds == milliseconds)
+                {
+                    _sequence = (_sequence + 1) << SequenceMask;
+                    if (_sequence == 0)
+                    {
+                        milliseconds = TillNextTime();
+                    }
                 }
                 else
-                    gotId = true;
+                    _sequence = 0;
+
+                _lastMilliseconds = milliseconds;
             }
 
-            return id;
+            var time = milliseconds << TimeShift;
+
+            var dataCenter = dataCenterId << DataCenterIdShift;
+
+            var server = serverId << ServerIdShift;
+
+            return time | dataCenter | server | _sequence;
 
 
         }
 
-        private long GetId()
+        private static long TillNextTime()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["mysql.seed"].ToString();
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            
+            var milliseconds = GetSystemMilliSeconds();
+            while (milliseconds <= _lastMilliseconds)
             {
-                connection.Open();
-                long id = 0;
-                using (MySqlCommand command = new MySqlCommand("call spGetNextId()", connection))
-                {
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        id = reader.GetInt64("Id");
-                    }
-                    
-                        return id;
-                }
-                connection.Close();
+                milliseconds = GetSystemMilliSeconds();
             }
+            return milliseconds;
 
+            
         }
+
+        private static long GetSystemMilliSeconds()
+        {
+
+            
+            var now = DateTime.Now.Ticks;
+
+            return (now - EpochTime) / TimeSpan.TicksPerMillisecond;
+            
+        }
+
+
     }
 }

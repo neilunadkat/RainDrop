@@ -10,7 +10,7 @@ namespace Tavisca.RainDrop.Service
         public NextId GetNextId()
         {
             RainDrop dr = new RainDrop();
-            return new NextId() {Id = dr.GetNextId(0, 0, 0)};
+            return new NextId() {Id = dr.GetNextId(1, 1)};
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Tavisca.RainDrop
         {
             
             var milliseconds = GetSystemMilliSeconds();
-
             lock (toBeLocked)
             {
                 if (milliseconds < _lastMilliseconds)
@@ -33,7 +32,7 @@ namespace Tavisca.RainDrop
 
                 if (_lastMilliseconds == milliseconds)
                 {
-                    _sequence = (_sequence + 1) << SequenceMask;
+                    _sequence = (_sequence + 1) & SequenceMask;
                     if (_sequence == 0)
                     {
                         milliseconds = TillNextTime();
@@ -47,12 +46,17 @@ namespace Tavisca.RainDrop
 
             var time = milliseconds << TimeShift;
 
-            var dataCenter = dataCenterId << DataCenterIdShift;
+                var dataCenter = dataCenterId << DataCenterIdShift;
 
-            var server = serverId << ServerIdShift;
+                var server = serverId << ServerIdShift;
 
-            return time | dataCenter | server | _sequence;
+                 long id = time | dataCenter | server | _sequence;
 
+                if (id < 0)
+                    id = GetNextId(serverId, dataCenterId);
+            
+
+            return id;
 
         }
 
@@ -72,7 +76,6 @@ namespace Tavisca.RainDrop
         private static long GetSystemMilliSeconds()
         {
             var now = DateTime.Now.Ticks;
-
             return (now - EpochTime) / TimeSpan.TicksPerMillisecond;
         }
 

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Configuration;
-using MySql.Data.MySqlClient;
-using System.Diagnostics;
 
 namespace Tavisca.RainDrop
 {
@@ -13,6 +7,8 @@ namespace Tavisca.RainDrop
         private static readonly object toBeLocked = new object();
         private static long _lastMilliseconds=long.MaxValue;
         private static int _sequence;
+
+        //Time: 1st August 2012
         private const long EpochTime = 634793760000000000;
         private const int ServerIdBits = 10;
         private const int DataCenterIdBits = 3;
@@ -75,12 +71,9 @@ namespace Tavisca.RainDrop
 
         private static long GetSystemMilliSeconds()
         {
-
-            
             var now = DateTime.Now.Ticks;
 
             return (now - EpochTime) / TimeSpan.TicksPerMillisecond;
-            
         }
 
 

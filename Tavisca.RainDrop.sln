@@ -6,10 +6,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tavisca.RainDrop", "Tavisca.RainDrop\Tavisca.RainDrop.csproj", "{6DF95F94-AEF2-4B04-AFA6-A0ADEF733F63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{0493DD48-DED8-431B-98DA-9CDFD5F8FD66}"
-	ProjectSection(SolutionItems) = preProject
-		Library\MySql.Data.dll = Library\MySql.Data.dll
-		Library\MySql.Web.dll = Library\MySql.Web.dll
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,7 +5,6 @@ namespace Tavisca.RainDrop
 {
     public class RainDrop
     {
-        private static readonly object toBeLocked = new object();
         private static long _lastMilliseconds=long.MaxValue;
         private static long _sequence;
 
@@ -18,8 +17,7 @@ namespace Tavisca.RainDrop
         private const int ServerIdShift = SequenceBits;
         private const int DataCenterIdShift = SequenceBits + ServerIdBits;
         private const int TimeShift = SequenceBits + ServerIdBits + DataCenterIdBits;
-        private const int SequenceMask = -1 ^ (-1 << SequenceBits);
-
+        
         public long GetNextId(long serverId, long dataCenterId)
         {
 
@@ -52,25 +50,6 @@ namespace Tavisca.RainDrop
 
             long id = milliSeconds | dataCenter | server | sequence;
             return id;
-        }
-
-        private static long TillNextTime()
-        {
-            //long milliseconds = 0;
-            //do
-            //{
-            //    milliseconds = GetSystemMilliSeconds();
-                
-            //} while (milliseconds <= _lastMilliseconds);
-            
-            var milliseconds = GetSystemMilliSeconds();
-            while (milliseconds <= _lastMilliseconds)
-            {
-                milliseconds = GetSystemMilliSeconds();
-            }
-            return milliseconds;
-
-            
         }
 
         private static long GetSystemMilliSeconds()

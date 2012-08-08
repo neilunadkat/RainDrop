@@ -14,29 +14,39 @@ namespace RainDrop.Test
     public class UnitTest
     {
         [TestMethod]
-        public void GeneratesIdTest()
+        public void GeneratesIdThroughServiceTest()
         {
             var id = GetId(HttpClient.Get(URL));
             Assert.IsTrue(id != 0);
         }
 
         [TestMethod]
+        public void GeneratesIdThroughMethodTest()
+        {
+            Tavisca.RainDrop.RainDrop rd = new Tavisca.RainDrop.RainDrop();
+
+            var id = rd.GetNextId(1, 1);
+            Assert.IsTrue(id != 0);
+        }
+        [TestMethod]
         public void DuplicateIdThroughServiceTest()
         {
             
             List<long> ids = new List<long>();
             //ThreadPool.QueueUserWorkItem(state => ids.Add(GetId(URL)));
-
+            Stopwatch watch = new Stopwatch();
            List<Thread> threads = new List<Thread>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 threads.Add(new Thread(() => ids.Add(GetId(HttpClient.Get(URL)))));
             }
+            watch.Start();
             threads.ForEach(thread => thread.Start());
             threads.ForEach(thread => thread.Join());
-
+            watch.Stop();
             var newIds = ids.Distinct().ToList();
             Assert.IsTrue(newIds.Count == ids.Count );
+            Console.WriteLine("Time elapsed: {0}",watch.ElapsedMilliseconds);
 
         }
 

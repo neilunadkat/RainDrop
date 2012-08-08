@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Tavisca.RainDrop
 {
@@ -6,13 +7,13 @@ namespace Tavisca.RainDrop
     {
         private static readonly object toBeLocked = new object();
         private static long _lastMilliseconds=long.MaxValue;
-        private static int _sequence;
+        private static long _sequence;
 
         //Time: 1st August 2012
         private const long EpochTime = 634793760000000000;
-        private const int ServerIdBits = 10;
+        private const int ServerIdBits = 9;
         private const int DataCenterIdBits = 3;
-        private const int SequenceBits = 10;
+        private const int SequenceBits = 8;
 
         private const int ServerIdShift = SequenceBits;
         private const int DataCenterIdShift = SequenceBits + ServerIdBits;
@@ -21,47 +22,46 @@ namespace Tavisca.RainDrop
 
         public long GetNextId(long serverId, long dataCenterId)
         {
-            
-            var milliseconds = GetSystemMilliSeconds();
-            lock (toBeLocked)
+
+            var currentSequence = NextSeq();
+            var lastMilliSeconds = Interlocked.Read(ref _lastMilliseconds);
+            var currentMilliSeconds = GetSystemMilliSeconds();
+
+            Interlocked.CompareExchange(ref _lastMilliseconds, currentMilliSeconds, lastMilliSeconds);
+
+            if(lastMilliSeconds > currentMilliSeconds)
             {
-                if (milliseconds < _lastMilliseconds)
-                {
-                    //TODO: Throw error that clock is moving backwords
-                }
-
-                if (_lastMilliseconds == milliseconds)
-                {
-                    _sequence = (_sequence + 1) & SequenceMask;
-                    if (_sequence == 0)
-                    {
-                        milliseconds = TillNextTime();
-                    }
-                }
-                else
-                    _sequence = 0;
-
-                _lastMilliseconds = milliseconds;
+                GetNextId(serverId, dataCenterId);
             }
+            return GenerateId(currentMilliSeconds,currentSequence,serverId,dataCenterId);
 
-            var time = milliseconds << TimeShift;
+        }
 
-                var dataCenter = dataCenterId << DataCenterIdShift;
+        private static long NextSeq()
+        {
+            Interlocked.CompareExchange(ref _sequence, 255, -1);
 
-                var server = serverId << ServerIdShift;
+            return Interlocked.Increment(ref _sequence);
+        }
 
-                 long id = time | dataCenter | server | _sequence;
+        private static long GenerateId(long milliSeconds,long sequence,long serverId,long dataCenterId)
+        {
+            var dataCenter = dataCenterId << DataCenterIdShift;
 
-                if (id < 0)
-                    id = GetNextId(serverId, dataCenterId);
-            
+            var server = serverId << ServerIdShift;
 
+            long id = milliSeconds | dataCenter | server | sequence;
             return id;
-
         }
 
         private static long TillNextTime()
         {
+            //long milliseconds = 0;
+            //do
+            //{
+            //    milliseconds = GetSystemMilliSeconds();
+                
+            //} while (milliseconds <= _lastMilliseconds);
             
             var milliseconds = GetSystemMilliSeconds();
             while (milliseconds <= _lastMilliseconds)
@@ -76,7 +76,8 @@ namespace Tavisca.RainDrop
         private static long GetSystemMilliSeconds()
         {
             var now = DateTime.Now.Ticks;
-            return (now - EpochTime) / TimeSpan.TicksPerMillisecond;
+            var time =  (now - EpochTime) / TimeSpan.TicksPerMillisecond;
+            return time << TimeShift;
         }
 
 

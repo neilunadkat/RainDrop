@@ -37,7 +37,7 @@ namespace Tavisca.RainDrop
 
         private static long NextSeq()
         {
-            Interlocked.CompareExchange(ref _sequence, 255, -1);
+            Interlocked.CompareExchange(ref _sequence, -1, 255);
 
             return Interlocked.Increment(ref _sequence);
         }
@@ -54,7 +54,7 @@ namespace Tavisca.RainDrop
 
         private static long GetSystemMilliSeconds()
         {
-            var now = DateTime.Now.Ticks;
+            var now = DateTime.UtcNow.Ticks;
             var time =  (now - EpochTime) / TimeSpan.TicksPerMillisecond;
             return time << TimeShift;
         }

@@ -9,7 +9,7 @@ namespace Tavisca.RainDrop
         private static long _sequence;
 
         //Time: 1st August 2012
-        private const long EpochTime = 634793760000000000;
+        private const long EpochTime =  634793760000000000;
         private const int ServerIdBits = 9;
         private const int DataCenterIdBits = 3;
         private const int SequenceBits = 8;
@@ -54,10 +54,20 @@ namespace Tavisca.RainDrop
 
         private static long GetSystemMilliSeconds()
         {
+            var epochTime = string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings["raindrop.epochtime"]) ? EpochTime
+                : long.Parse(System.Configuration.ConfigurationManager.AppSettings["raindrop.epochtime"]);
             var now = DateTime.UtcNow.Ticks;
-            var time =  (now - EpochTime) / TimeSpan.TicksPerMillisecond;
+            var time =  (now - epochTime) / TimeSpan.TicksPerMillisecond;
             return time << TimeShift;
         }
+
+        private static void EpochTimeGet() 
+        {
+
+            var epochTime = DateTime.Parse("1 Aug 2012");
+            Console.WriteLine(epochTime.Ticks);
+        }
+
 
 
     }
